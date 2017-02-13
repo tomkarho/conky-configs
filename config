@@ -1,0 +1,65 @@
+conky.config = {
+	alignment = 'top_middle',
+	maximum_width = 1440,
+	minimum_width = 640,
+	gap_x = 0,
+	gap_y = 0,
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+	xinerama_head = 3,
+
+	own_window = true,
+	own_window_transparent = true,
+	own_window_argb_visual = true,
+	own_window_argb_value = 0,
+	own_window_type = 'normal',
+	own_window_class = 'Conky',
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+
+	short_units = true,
+        format_human_readable = true,
+        times_in_seconds = false,
+	update_interval = 1,
+	use_spacer = 'none',
+	net_avg_samples = 1,
+	cpu_avg_samples = 1,
+	top_cpu_separate = false,
+
+	use_xft = true,
+	override_utf8_locale = true,
+
+	draw_shades = false,
+	draw_borders = false,
+	draw_graph_borders = true,
+
+	default_bar_width = 50,
+        default_bar_height = 6,
+	default_graph_width = 60,
+        default_graph_height = 35,
+
+	own_window_colour = '000000',
+	default_color = 'bbbbbb',
+	default_shade_color = '111111',
+        color1 = '666666',
+        color2 = '1793d0',
+        color3 = '66a0ff',
+}
+
+conky.text = [[
+${voffset 90}
+${color lightgrey}${alignc}${font space age:size=36}${time %d}. ${time %B}
+${alignc}${time %A}
+${alignc}${time %R}${font}${color}
+${voffset 46}${alignc}${font neuropolitical}CPU: ${cpu} %
+${alignc}${color 222222}${cpubar 22,150}${color}
+${voffset 10}${alignc}${execi 5 sensors | grep Core | cut -c 18-25 | sed ':a;N;$!ba;s/\n/ /g'}
+${voffset 25}${alignc}RAM: ${memperc} %
+${alignc}${color 222222}${membar 22,150}${color}
+${color}${voffset 18}${alignc}DISK:
+${alignc}------------------------------------------------------------------------------------------------------------------
+${color 222222}${fs_bar 22,150 /}${alignc}${color 222222}${offset 72}${fs_bar 22,150 /mnt/storage}${alignr}${color 222222}${fs_bar 22,150 /home}
+${color}${fs_used /} / ${fs_size /} (${fs_free /})${offset 88}${color}${fs_used /mnt/storage} / ${fs_size /mnt/storage} (${fs_free /mnt/storage})${alignr}${color}${fs_used /home} / ${fs_size /home} (${fs_free /home})
+${color}${voffset 320}${alignc}${execi 120 ~/bin/echo-note} ${color3}${execi 10 /home/tomkarho/bin/spotify-now-playing}${color} ${execi 120 ~/bin/echo-note}
+${alignc}------------------------------------------------------------------------------------------------------------------
+]];
