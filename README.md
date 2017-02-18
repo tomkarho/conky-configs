@@ -1,6 +1,10 @@
 # conky-configs
 My personal conky configs
 
+![alt tag](https://raw.githubusercontent.com/tomkarho/conky-configs/master/screenshot.png)
+
+
+
 ## Sections
 
 ### Date
