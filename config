@@ -53,13 +53,16 @@ ${alignc}${time %A}
 ${alignc}${time %R}${font}${color}
 ${voffset 46}${alignc}${font neuropolitical}CPU: ${cpu} %
 ${alignc}${color 222222}${cpubar 22,150}${color}
-${voffset 10}${alignc}${execi 5 sensors | grep Core | cut -c 18-25 | sed ':a;N;$!ba;s/\n/ /g'}
+${voffset 10}${alignc}${execi 5 sensors | grep Core | cut -c 16-25 | sed ':a;N;$!ba;s/\n/ /g'}
 ${voffset 25}${alignc}RAM: ${memperc} %
 ${alignc}${color 222222}${membar 22,150}${color}
+
 ${color}${voffset 18}${alignc}DISK:
 ${alignc}------------------------------------------------------------------------------------------------------------------
-${color 222222}${fs_bar 22,150 /}${alignc}${color 222222}${offset 72}${fs_bar 22,150 /mnt/storage}${alignr}${color 222222}${fs_bar 22,150 /home}
-${color}${fs_used /} / ${fs_size /} (${fs_free /})${offset 88}${color}${fs_used /mnt/storage} / ${fs_size /mnt/storage} (${fs_free /mnt/storage})${alignr}${color}${fs_used /home} / ${fs_size /home} (${fs_free /home})
+
+${color}${offset 52}ROOT${color}${offset 202}STORAGE${color}${offset 205}HOME
+${color 222222}${fs_bar 22,150 /}${alignc}${color 222222}${offset 72}${fs_bar 22,150 /mnt/Storage}${alignr}${color 222222}${fs_bar 22,150 /home}
+${color}${fs_used /} / ${fs_size /} (${fs_free /})${offset 88}${color}${fs_used /mnt/Storage} / ${fs_size /mnt/Storage} (${fs_free /mnt/Storage})${alignr}${color}${fs_used /home} / ${fs_size /home} (${fs_free /home})
 ${color}${voffset 320}${alignc}${execi 120 ~/bin/echo-note} ${color3}${execi 10 /home/tomkarho/bin/spotify-now-playing}${color} ${execi 120 ~/bin/echo-note}
 ${alignc}------------------------------------------------------------------------------------------------------------------
 ]];
